@@ -9,17 +9,17 @@ const Map = () => {
 	const { setMapInstance, eventsList, addEventMarker, eventListByType, zoomNumber } = useContext(MapContext);
 
 	const dtpIcon = DG.icon({
-		iconUrl: 'http://tvoygorod.online/dtpIcon.png',
+		iconUrl: 'https://tvoygorod.online/dtpIcon.png',
 		iconSize: [42, 42]
 	});
 
 	const admIcon = DG.icon({
-		iconUrl: 'http://tvoygorod.online/admIcon.png',
+		iconUrl: 'https://tvoygorod.online/admIcon.png',
 		iconSize: [42, 42]
 	});
 
 	const intIcon = DG.icon({
-		iconUrl: 'http://tvoygorod.online/intIcon.png',
+		iconUrl: 'https://tvoygorod.online/intIcon.png',
 		iconSize: [42, 42]
 	});
 
@@ -62,11 +62,11 @@ const Map = () => {
 		const addEventMarkerOnMap = (event) =>{
 			switch (event.type) {
 				case 'DTP':
-					return DG.marker([event.position.latitude, event.position.longitude], { icon: dtpIcon }).bindPopup(`<div style="width:200px"><img src="${event.pictures[0]}"  height="100px"/><p>${event.name}</p><a href="/eventpage/${event.id}">Подробнее</a></div>`).addTo(map)
+					return DG.marker([event.position.latitude, event.position.longitude], { icon: dtpIcon }).bindPopup(`<div style="width:200px"><img src="${event.pictures[0]}"  height="100px"/><p>${event.name}</p><a href="/tvoygorodonline/eventpage/${event.id}">Подробнее</a></div>`).addTo(map)
 				case 'ADM':
-					return DG.marker([event.position.latitude, event.position.longitude], { icon: admIcon }).bindPopup(`<div style="width:200px"><img src="${event.pictures[0]}"  height="100px"/><p>${event.name}</p><a href="/eventpage/${event.id}">Подробнее</a></div>`).addTo(map)
+					return DG.marker([event.position.latitude, event.position.longitude], { icon: admIcon }).bindPopup(`<div style="width:200px"><img src="${event.pictures[0]}"  height="100px"/><p>${event.name}</p><a href="/tvoygorodonline/eventpage/${event.id}">Подробнее</a></div>`).addTo(map)
 				case 'INT':
-					return DG.marker([event.position.latitude, event.position.longitude], { icon: intIcon }).bindPopup(`<div style="width:200px"><img src="${event.pictures[0]}"  height="100px"/><p>${event.name}</p><a href="/eventpage/${event.id}">Подробнее</a></div>`).addTo(map)
+					return DG.marker([event.position.latitude, event.position.longitude], { icon: intIcon }).bindPopup(`<div style="width:200px"><img src="${event.pictures[0]}"  height="100px"/><p>${event.name}</p><a href="/tvoygorodonline/eventpage/${event.id}">Подробнее</a></div>`).addTo(map)
 			}
 		}
 
