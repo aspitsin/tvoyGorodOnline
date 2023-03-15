@@ -9,7 +9,7 @@ import EventPage from './pages/EventPage';
 import { Api } from "./Api";
 import MapContext from './components/MapContext';
 
-
+const PATH = "/tvoygorodonline/";
 
 function App() {
 	let usr = localStorage.getItem("user");
