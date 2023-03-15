@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/static/css/main.70f0b00f.css",
-    "main.js": "/static/js/main.b7ef1191.js",
-    "static/media/dtpIcon.png": "/static/media/dtpIcon.121668acba92d1fd6438.png",
-    "index.html": "/index.html",
-    "main.70f0b00f.css.map": "/static/css/main.70f0b00f.css.map",
-    "main.b7ef1191.js.map": "/static/js/main.b7ef1191.js.map"
+    "main.css": "/tvoygorodonline/static/css/main.70f0b00f.css",
+    "main.js": "/tvoygorodonline/static/js/main.803a7721.js",
+    "static/media/dtpIcon.png": "/tvoygorodonline/static/media/dtpIcon.121668acba92d1fd6438.png",
+    "index.html": "/tvoygorodonline/index.html",
+    "main.70f0b00f.css.map": "/tvoygorodonline/static/css/main.70f0b00f.css.map",
+    "main.803a7721.js.map": "/tvoygorodonline/static/js/main.803a7721.js.map"
   },
   "entrypoints": [
     "static/css/main.70f0b00f.css",
-    "static/js/main.b7ef1191.js"
+    "static/js/main.803a7721.js"
   ]
 }
