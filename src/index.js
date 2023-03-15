@@ -6,7 +6,7 @@ import "./index.css";
 
 const root = ReactDOM.createRoot(document.querySelector("#root"));
 root.render(
-  <BrowserRouter>
+  <BrowserRouter basename={process.env.PUBLIC_URL}>
     <App/>
   </BrowserRouter>
 )
