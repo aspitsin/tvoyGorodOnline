@@ -10,17 +10,17 @@ const Map = () => {
 	const { setMapInstance, eventsList, addEventMarker, eventListByType, zoomNumber } = useContext(MapContext);
 
 	const dtpIcon = DG.icon({
-		iconUrl: './icons/dtpIcon.png',
+		iconUrl: 'https://aspitsin.github.io/tvoygorodonline/icons/dtpIcon.png',
 		iconSize: [42, 42]
 	});
 
 	const admIcon = DG.icon({
-		iconUrl: './icons/admIcon.png',
+		iconUrl: 'https://aspitsin.github.io/tvoygorodonline/icons/gitadmIcon.png',
 		iconSize: [42, 42]
 	});
 
 	const intIcon = DG.icon({
-		iconUrl: './icons/intIcon.png',
+		iconUrl: 'https://aspitsin.github.io/tvoygorodonline/icons/intIcon.png',
 		iconSize: [42, 42]
 	});
 
