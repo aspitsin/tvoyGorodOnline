@@ -54,10 +54,10 @@ const Sidebar = ({ }) => {
 					</Paper>
 					<SidebarTypeButton />
 					{eventListByType.length == 0 && eventsList.map((event) =>
-						<Card {...event} setSelectedEvent={setSelectedEvent} />
+						<Card {...event} setSelectedEvent={setSelectedEvent} key={event.id}/>
 					).reverse()}
 					{eventListByType.length > 0 && eventListByType.map((event) =>
-						<Card {...event} setSelectedEvent={setSelectedEvent} />
+						<Card {...event} setSelectedEvent={setSelectedEvent} key={event.id}/>
 					).reverse()}
 				</Stack>
 			</Box>
@@ -84,12 +84,12 @@ const Sidebar = ({ }) => {
 			<SidebarTypeButton />
 			<Grid container >
 				{eventListByType.length == 0 && eventsList.map((event) => (
-					<Grid item xs={6} md={6}>
+					<Grid item xs={6} md={6} key={event.id}>
 						<Card {...event} setSelectedEvent={setSelectedEvent} />
 					</Grid>
 				))}
 				{eventListByType.length > 0 && eventListByType.map((event) => (
-					<Grid item xs={6} md={6}>
+					<Grid item xs={6} md={6} key={event.id}>
 						<Card {...event} setSelectedEvent={setSelectedEvent} />
 					</Grid>
 				))}

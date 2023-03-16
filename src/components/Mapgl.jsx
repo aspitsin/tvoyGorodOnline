@@ -1,26 +1,32 @@
 import React, { useContext, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { MapWrapper } from './MapWrapper';
 import MapContext from './MapContext';
-import { Box } from '@mui/material';
+import { Box, Button } from '@mui/material';
 import Menu from './Menu';
-import DG from '2gis-maps'
+import DG from '2gis-maps';
+
+import dtpIcon from './icons/dtpIcon.png'
+import admIcon from './icons/admIcon.png'
+import intIcon from './icons/intIcon.png'
 
 const Map = () => {
+	const navigate = useNavigate();
 	const { setMapInstance, eventsList, addEventMarker, eventListByType, zoomNumber } = useContext(MapContext);
 
-	const dtpIcon = DG.icon({
-		iconUrl: 'https://aspitsin.github.io/tvoygorodonline/icons/dtpIcon.png',
+	const dtpIconLogo = DG.icon({
+		iconUrl: dtpIcon,
 		iconSize: [42, 42]
 	});
 
-	const admIcon = DG.icon({
-		iconUrl: 'https://aspitsin.github.io/tvoygorodonline/icons/gitadmIcon.png',
+	const admIconLogo = DG.icon({
+		iconUrl: admIcon,
 		iconSize: [42, 42]
 	});
 
-	const intIcon = DG.icon({
-		iconUrl: 'https://aspitsin.github.io/tvoygorodonline/icons/intIcon.png',
+	const intIconLogo = DG.icon({
+		iconUrl: intIcon,
 		iconSize: [42, 42]
 	});
 
@@ -54,20 +60,35 @@ const Map = () => {
 			map.panTo([userGeo.latitude, userGeo.longitude]).setZoom(zoomNumber ? zoomNumber : 13);
 			DG.marker([userGeo.latitude, userGeo.longitude]).addTo(map);
 		}
-		
+
 		if (addEventMarker) {
 			DG.marker([addEventMarker[0], addEventMarker[1]]).addTo(map);
 			map.panTo([addEventMarker[0], addEventMarker[1]]).setZoom(18);
 		}
 
-		const addEventMarkerOnMap = (event) =>{
+		const addEventMarkerOnMap = (event) => {
+			
+			function redirect(id) {
+				navigate(`/eventPage/${id}`);
+			}
+			const popUpTemplate = function (logo) {
+				return DG.marker([event.position.latitude, event.position.longitude], { icon: logo }).bindPopup(`<div style="width:200px"><img src="${event.pictures[0]}"  height="100px"/><p>${event.name}</p><a href="/tvoygorodonline/eventpage/${event.id}">Подробнее</a></div>`)
+					.on("click", (a) => {
+						let popUp = a.target.getPopup()
+						popUp.getElement().querySelector(".linkToEventPage").addEventListener("click", e => {
+							redirect(event.id)
+						});
+					})
+					.addTo(map)
+			}
+
 			switch (event.type) {
 				case 'DTP':
-					return DG.marker([event.position.latitude, event.position.longitude], { icon: dtpIcon }).bindPopup(`<div style="width:200px"><img src="${event.pictures[0]}"  height="100px"/><p>${event.name}</p><a href="/tvoygorodonline/eventpage/${event.id}">Подробнее</a></div>`).addTo(map)
+					return popUpTemplate(dtpIconLogo)
 				case 'ADM':
-					return DG.marker([event.position.latitude, event.position.longitude], { icon: admIcon }).bindPopup(`<div style="width:200px"><img src="${event.pictures[0]}"  height="100px"/><p>${event.name}</p><a href="/tvoygorodonline/eventpage/${event.id}">Подробнее</a></div>`).addTo(map)
+					return popUpTemplate(admIconLogo)
 				case 'INT':
-					return DG.marker([event.position.latitude, event.position.longitude], { icon: intIcon }).bindPopup(`<div style="width:200px"><img src="${event.pictures[0]}"  height="100px"/><p>${event.name}</p><a href="/tvoygorodonline/eventpage/${event.id}">Подробнее</a></div>`).addTo(map)
+					return popUpTemplate(intIconLogo)
 			}
 		}
 
@@ -76,7 +97,7 @@ const Map = () => {
 				addEventMarkerOnMap(event)
 			)
 		} else {
-			eventsList.forEach(event => 
+			eventsList.forEach(event =>
 				addEventMarkerOnMap(event)
 			)
 		}

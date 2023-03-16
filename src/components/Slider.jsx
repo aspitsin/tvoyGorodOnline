@@ -30,8 +30,8 @@ export default function Slider({ pictures }) {
 					modules={[FreeMode, Navigation, Thumbs]}
 					className="mySwiper2"
 				>
-					{pictures.map((picture) => (
-						<SwiperSlide>
+					{pictures.map((picture, index) => (
+						<SwiperSlide key={index}>
 							<Image src={picture} height="500px" />
 						</SwiperSlide>
 					))}
@@ -46,8 +46,8 @@ export default function Slider({ pictures }) {
 					modules={[FreeMode, Navigation, Thumbs]}
 					className="mySwiper"
 				>
-					{pictures.map((picture) => (
-						<SwiperSlide>
+					{pictures.map((picture, index) => (
+						<SwiperSlide key={index}>
 							<Image src={picture} height="200px" />
 						</SwiperSlide>
 					))}
