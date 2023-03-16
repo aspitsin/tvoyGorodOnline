@@ -72,7 +72,7 @@ const Map = () => {
 				navigate(`/eventPage/${id}`);
 			}
 			const popUpTemplate = function (logo) {
-				return DG.marker([event.position.latitude, event.position.longitude], { icon: logo }).bindPopup(`<div style="width:200px"><img src="${event.pictures[0]}"  height="100px"/><p>${event.name}</p><a href="/tvoygorodonline/eventpage/${event.id}">Подробнее</a></div>`)
+				return DG.marker([event.position.latitude, event.position.longitude], { icon: logo }).bindPopup(`<div style="width:200px"><img src="${event.pictures[0]}"  height="100px"/><p>${event.name}</p><button class="linkToEventPage" >Подробнее</button></div>`)
 					.on("click", (a) => {
 						let popUp = a.target.getPopup()
 						popUp.getElement().querySelector(".linkToEventPage").addEventListener("click", e => {
