@@ -15,7 +15,7 @@ const Map = () => {
 	});
 
 	const admIcon = DG.icon({
-		iconUrl: './icons//admIcon.png',
+		iconUrl: './icons/admIcon.png',
 		iconSize: [42, 42]
 	});
 
