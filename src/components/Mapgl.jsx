@@ -1,4 +1,5 @@
 import React, { useContext, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { MapWrapper } from './MapWrapper';
 import MapContext from './MapContext';
 import { Box } from '@mui/material';
@@ -9,17 +10,17 @@ const Map = () => {
 	const { setMapInstance, eventsList, addEventMarker, eventListByType, zoomNumber } = useContext(MapContext);
 
 	const dtpIcon = DG.icon({
-		iconUrl: 'https://tvoygorod.online/dtpIcon.png',
+		iconUrl: './icons/dtpIcon.png',
 		iconSize: [42, 42]
 	});
 
 	const admIcon = DG.icon({
-		iconUrl: 'https://tvoygorod.online/admIcon.png',
+		iconUrl: './icons//admIcon.png',
 		iconSize: [42, 42]
 	});
 
 	const intIcon = DG.icon({
-		iconUrl: 'https://tvoygorod.online/intIcon.png',
+		iconUrl: './icons/intIcon.png',
 		iconSize: [42, 42]
 	});
 

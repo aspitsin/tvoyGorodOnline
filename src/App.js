@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import { Routes, Route } from "react-router-dom";
 
 import Main from './pages/Main';
@@ -37,31 +37,31 @@ function App() {
 
 	return <>
 		<MapContext.Provider value={{
-				user,
-				setUser,
-				api,
-				setApi,
-				mapInstance,
-				setMapInstance,
-				activeBar,
-				setActiveBar,
-				formAddEventData,
-				setFormAddEventData,
-				eventsList,
-				setEventsList,
-				addEventMarker,
-				setAddEventMarker,
-				eventListByType, 
-				SetEventListByType,
-				zoomNumber,
-				setZoomNumber,
-				}}>
-					<Routes>
-						<Route path={"/"} element={<Main />}></Route>
-                    	<Route path={"/addevent"} element={<AddEvent/>} ></Route>
-						<Route path={"/profile"} element={<Profile/>}></Route>
-						<Route path={"/eventpage/:id"} element={<EventPage/>}></Route>
-                	</Routes>
+			user,
+			setUser,
+			api,
+			setApi,
+			mapInstance,
+			setMapInstance,
+			activeBar,
+			setActiveBar,
+			formAddEventData,
+			setFormAddEventData,
+			eventsList,
+			setEventsList,
+			addEventMarker,
+			setAddEventMarker,
+			eventListByType,
+			SetEventListByType,
+			zoomNumber,
+			setZoomNumber,
+		}}>
+			<Routes>
+				<Route path={"/"} element={<Main />}></Route>
+				<Route path={"/addevent"} element={<AddEvent />} ></Route>
+				<Route path={"/profile"} element={<Profile />}></Route>
+				<Route path={"/eventpage/:id"} element={<EventPage />}></Route>
+			</Routes>
 		</MapContext.Provider>
 	</>
 }
